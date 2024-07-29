@@ -18,10 +18,10 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
 MEDIA_ROOT = MEDIA_DIR
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #  --------------------------==========-------------------------------
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
