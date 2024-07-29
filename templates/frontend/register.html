@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Sign Up{% endblock title %}
 {% block css %}
-<link rel="stylesheet" href="{% static "css/login.css" %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock css %}
 {% block content %}
 
@@ -10,7 +10,7 @@
 	<div class="header">
 		<div class="top">
 			<div class="logo">
-				<img src="{% static "image/emhash.png" %}" alt="emhash" style="width: 175px;">
+				<img src="{% static 'image/emhash.png' %}" alt="emhash" style="width: 175px;">
 			</div>
 			<div class="form">
                 <form novalidate method ="POST" >
@@ -47,7 +47,7 @@
 			
 		</div>
 		<div class="signup">
-			<p>Already have an account? <a href="{% url "loginpage" %}">Log In</a></p>
+			<p>Already have an account? <a href="{% url 'loginpage' %}">Log In</a></p>
 		</div>
 
 	</div>
