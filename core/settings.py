@@ -94,9 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'  # Note the leading slash
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
