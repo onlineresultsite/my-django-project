@@ -97,11 +97,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 STATIC_URL = '/static/'  # Note the leading slash
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/ubuntu/my-django-project/staticfiles'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'my-django-project/static'),
-]
 # --=====> EXTRA <=====------
 
 AUTH_USER_MODEL = 'users.User'
