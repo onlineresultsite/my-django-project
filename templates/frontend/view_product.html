@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Product{% endblock title %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/product_view.css' %}">
+<link rel="stylesheet" href="{% static "css/product_view.css" %}">
 {% endblock css %}
 {% block content %}
 
@@ -39,7 +39,7 @@
                         <li>✔ Shipping Fee: Free</li>
                     </ul>
                     <div class="cart-add">
-                        <a href="{% url 'cart_view' fish.uid %}" class="btn">Add to Cart</a>
+                        <a href="{% url "cart_view" fish.uid %}" class="btn">Add to Cart</a>
                         <button type="button">Compare</button>
                     </div>
                     <div class="share">

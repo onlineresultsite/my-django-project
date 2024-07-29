@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<link rel="stylesheet" href="{% static "css/cart.css" %}">
 {% endblock css %}
 
 {% block content %}
@@ -22,12 +22,12 @@
           </div>
           <div class="quantiy">
             <p class="cart-item-quantity"> Quantity(KG):
-              <a href="{% url 'cart_plus' the_item.uid %}" class="plus">+</a> 
+              <a href="{% url "cart_plus" the_item.uid %}" class="plus">+</a> 
               {{the_item.quantity}}
-              <a href="{% url 'cart_minus' the_item.uid %}" class="minus"> - </a>
+              <a href="{% url "cart_minus" the_item.uid %}" class="minus"> - </a>
             </p>
           </div>
-          <a href="{% url 'delete_cart_product' the_item.uid %}" class="delete">Delele  <i class="fas fa-trash"></i></a>
+          <a href="{% url "delete_cart_product" the_item.uid %}" class="delete">Delele  <i class="fas fa-trash"></i></a>
         </div>
         {% endfor %}
       </div>

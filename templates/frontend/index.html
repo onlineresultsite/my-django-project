@@ -5,7 +5,7 @@
 
 <section class="home" id="home">
     <div class="img">
-      <img decoding="async" src="{% static 'image/homesfish.png' %}" alt="">
+      <img decoding="async" src="{% static "image/homesfish.png" %}" alt="">
     </div>
     <div class="content">
       <span>Fresh and Organic</span>
@@ -53,10 +53,10 @@
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-share"></a>
-                <a href="{% url 'view_product' row.uid %}" class="fas fa-eye"></a>
+                <a href="{% url "view_product" row.uid %}" class="fas fa-eye"></a>
             </div>
             <img decoding="async" src="{{ row.image.url }}" alt="">
-            <h3><a href="{% url 'view_product' row.uid %}">{{ row.name }}</a></h3>
+            <h3><a href="{% url "view_product" row.uid %}">{{ row.name }}</a></h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>

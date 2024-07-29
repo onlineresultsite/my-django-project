@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Sign In{% endblock title %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static "css/login.css" %}">
 {% endblock css %}
 {% block content %}
 
@@ -10,7 +10,7 @@
 	<div class="header">
 		<div class="top">
 			<div class="logo">
-				<img src="{% static 'image/emhash.png' %}" alt="emhash" style="width: 175px;">
+				<img src="{% static "image/emhash.png" %}" alt="emhash" style="width: 175px;">
 			</div>
 			{% if messages %}
 			
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="signup">
-			<p>Don't have an account? <a href="{% url 'registration' %}">Sign up</a></p>
+			<p>Don't have an account? <a href="{% url "registration" %}">Sign up</a></p>
 		</div>
 
 	</div>
