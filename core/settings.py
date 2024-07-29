@@ -3,23 +3,13 @@ import os
 
 SECRET_KEY = 'django-insecure-r$a5(on+pbsj#o2w@ni@&#%jdf)jq@()_-ht@*@3!@wax1rnwy'
 DEBUG = True
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 # ------- COMMON CODE FOR HANDLE MEDIA, STATIC and TEMPLATES ---------
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-STATIC_URL = '/static/'  # Note the leading slash
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL = '/media/'
-
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
-
-MEDIA_ROOT = MEDIA_DIR
+MEDIA_ROOT = BASE_DIR / 'media'
 
 #  --------------------------==========-------------------------------
 
@@ -102,6 +92,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = '/static/'  # Note the leading slash
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'my-django-project/static'),
+]
 # --=====> EXTRA <=====------
 
 AUTH_USER_MODEL = 'users.User'
