@@ -4,21 +4,23 @@ import os
 SECRET_KEY = 'django-insecure-r$a5(on+pbsj#o2w@ni@&#%jdf)jq@()_-ht@*@3!@wax1rnwy'
 DEBUG = True
 
-# ------- COMMON CODE FOR HANDLE MEDA, STATIC and TEMPLATES ---------
+# ------- COMMON CODE FOR HANDLE MEDIA, STATIC and TEMPLATES ---------
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_DIR = os.path.join(BASE_DIR , 'static')
-TEMPLATE_DIR = os.path.join(BASE_DIR , 'templates')
-MEDIA_DIR = os.path.join(BASE_DIR , 'media')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'  # Note the leading slash
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 
 MEDIA_ROOT = MEDIA_DIR
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 #  --------------------------==========-------------------------------
 
 ALLOWED_HOSTS = ['*']
@@ -73,17 +75,17 @@ DATABASES = {
     }
 }
 
-
+# Uncomment and configure MySQL if needed
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'chatxity',
 #         'USER': 'ashiqmyi@localhost',
 #         'PASSWORD': '123456@@@@@@',
-#         'HOST': 'localhost:3306',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
 #     }
 # }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
