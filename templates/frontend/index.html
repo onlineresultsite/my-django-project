@@ -1,0 +1,158 @@
+{% extends "frontend/base/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<section class="home" id="home">
+    <div class="img">
+      <img decoding="async" src="{% static "image/homesfish.png" %}" alt="">
+    </div>
+    <div class="content">
+      <span>Fresh and Organic</span>
+      <h3>Your daily fresh fish</h3>
+      <a href="#" class="btn">get started</a>
+    </div>
+</section>
+
+
+<section class="banner-container">
+    {% for row in offers %}
+    <div class="banner">
+        <img decoding="async" src="{{row.image.url}}" alt="">
+        <div class="content">
+            <h3>{{row.name}}</h3>
+            <p>upto {{row.up_to}}% off</p>
+            <a href="#" class="btn">check out</a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<section class="category" id="category">
+<h1 class="heading">shop by <span>category</span></h1>
+<div class="box-container">
+    {% for row in categories %}
+    <div class="box">
+        <h3>{{row.name}}</h3>
+        <p>upto {{row.up_to}}% off</p>
+        <img decoding="async" src="{{row.image.url}}" alt="">
+        <a href="#" class="btn">shop now</a>
+    </div>
+    {% endfor %}
+    
+</div>
+</section>
+
+
+<section class="product" id="product">
+    <h1 class="heading">latest <span>Fishes</span></h1>
+    <div class="box-container">
+        {% for row in fishes %}
+        <div class="box">
+            <span class="discount">-{{ row.discount }}%</span>
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="{% url "view_product" row.uid %}" class="fas fa-eye"></a>
+            </div>
+            <img decoding="async" src="{{ row.image.url }}" alt="">
+            <h3><a href="{% url "view_product" row.uid %}">{{ row.name }}</a></h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">{{ row.discounted_price }} ৳ /- <span>{{ row.price }} ৳ /-</span></div>
+            {% comment %} <div class="quantity">
+                <span>quantity</span>
+                <input type="number" min="1" max="1000" value="1">
+                <span> /kg </span>
+            </div> {% endcomment %}
+            <a href="{% url 'cart_view' row.uid %}" class="btn">add to cart</a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+
+    <div class="pagination d-flex justify-content-between align-items-center">
+        <span class="step-links">
+          {% if fishes.has_previous %}
+            <a href="?page=1" class="">&laquo; First</a>
+            <a href="?page={{ fishes.previous_page_number }}" class="">Previous</a>
+          {% endif %}
+        </span>
+      
+        <span class="current text-muted">
+          Page {{ fishes.number }} of {{ fishes.paginator.num_pages }}
+        </span>
+      
+        <span class="step-links">
+          {% if fishes.has_next %}
+            <a href="?page={{ fishes.next_page_number }}" >Next</a>
+            <a href="?page={{ fishes.paginator.num_pages }}" class="ml-2">&raquo; Last</a>
+          {% endif %}
+        </span>
+      </div>
+      
+</section>
+
+
+<section class="contact" id="contact">
+<h1 class="heading"> <span>contact</span> us </h1>
+<form  method="POST" novalidate >
+  {% csrf_token %}
+  
+  <div class="inputBox">
+    {{form.name}}
+    {{form.email}}
+    
+  </div>
+  {% if form.name.errors %}
+  {% for error in form.name.errors %}
+  <p style="font-size:15px; shadow:none; color:red;"> {{form.name.label}} - {{error}}</p>
+  {% endfor %}
+  {% endif %}
+  {% if form.email.errors %}
+  {% for error in form.email.errors %}
+  <p style="font-size:15px; shadow:none; color:red;"> {{form.email.label}} - {{error}}</p>
+  {% endfor %}
+  {% endif %}
+    <div class="inputBox">
+      {{form.number}}
+      {{form.subject}}
+      
+    </div>
+    {% if form.number.errors %}
+    {% for error in form.number.errors %}
+    <p style="font-size:15px; shadow:none; color:red;"> {{form.number.label}} - {{error}}</p>
+    {% endfor %}
+    {% endif %}
+    {% if form.subject.errors %}
+    {% for error in form.subject.errors %}
+    <p style="font-size:15px; shadow:none; color:red;"> {{form.subject.label}} - {{error}}</p>
+    {% endfor %}
+    {% endif %}
+
+    {{form.message}}
+    {% if form.message.errors %}
+    {% for error in form.message.errors %}
+    <p style="font-size:15px; shadow:none; color:red;"> {{form.message.label}} - {{error}}</p>
+    {% endfor %}
+    {% endif %}
+    <input type="submit" value="send message" class="btn">
+</form>
+</section>
+
+<section class="newsletter">
+<h3>subscribe us for latest updates</h3>
+<form action="">
+    <input class="box" type="email" placeholder="enter your email">
+    <input type="submit" value="Subscribe" class="btn">
+</form>
+</section>
+
+
+{% endblock content %}
